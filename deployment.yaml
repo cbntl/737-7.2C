@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newmyapp
+spec:
+  selector:
+    matchLabels:
+      app: newmyapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: newmyapp
+    spec:
+      containers:
+        - name: newmyapp
+          image: cbntl/modified-myimage
+          ports:
+            - containerPort: 3000
